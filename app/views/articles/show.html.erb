@@ -1,0 +1,10 @@
+<h1>
+  <%= @article.title %>
+  <small><%= link_to "🖊", edit_article_path(@article)%>
+  <%= link_to "🗑", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></small>
+</h1>
+<p><%= @article.content %></p>
+
+<br>
+
+<%= link_to "Back to tasks", articles_path%>
