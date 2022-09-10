@@ -1,10 +1,14 @@
-<h1>
-  <%= @article.title %>
-  <small><%= link_to "🖊", edit_article_path(@article)%>
-  <%= link_to "🗑", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></small>
-</h1>
-<p><%= @article.content %></p>
-
-<br>
-
-<%= link_to "Back to tasks", articles_path%>
+<div class="card">
+  <div class="card-body">
+    <h2 class="border-bottom m-3">
+      <%= @article.title %>
+      <small><%= link_to edit_article_path(@article) do%>
+        <i class="fa fa-pencil"></i></small>
+      <% end %>
+      <small><%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do%>
+        <i class="fa fa-trash"></i></small>
+      <% end %>
+    </h2>
+    <p class="bg-dark p-2 text-dark bg-opacity-10"><%= @article.content %></p>
+  </div>
+</div>
